@@ -17,6 +17,7 @@ public class BookController extends JFrame {
 		BookSearchView searchPan = new BookSearchView();
 	
 		BookDAO bookDAO = new BookDAO();
+		//System.out.println("test:"+searchPan.getSearchWord());
 		ArrayList<BookVO> bookVOList = bookDAO.select(con, searchPan.getSearchWord());
 		searchPan.setBookVOList(bookVOList);
 		searchPan.initView();
@@ -24,7 +25,7 @@ public class BookController extends JFrame {
 		
 		setTitle("도서 검색 시스템");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setBounds(1000, 200, 800, 600);
+		setBounds(2500, 200, 800, 600);
 		setVisible(true);
 	}
 

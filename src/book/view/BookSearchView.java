@@ -24,7 +24,7 @@ public class BookSearchView extends JPanel {
 	JTextField textSearch = new JTextField(20);
 	JButton btnSearch = new JButton("검색");
 	ArrayList<BookVO> bookVOList;
-	String searchWord;
+	String searchWord = "";
 	
 	public BookSearchView() {
 	

@@ -17,8 +17,9 @@ public class BookDAO {
 		con = JDBCConnector.getCon();
 		
 		try {
-			String sql = "select * from book";
+			String sql = "select * from book where name like ?";
 			PreparedStatement stmt = con.prepareStatement(sql);
+			stmt.setString(1,"%" + searchWord + "%");
 			ResultSet rs = stmt.executeQuery();
 			
 			while(rs.next()) {
