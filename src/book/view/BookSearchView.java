@@ -24,10 +24,14 @@ public class BookSearchView extends JPanel {
 	JTextField textSearch = new JTextField(20);
 	JButton btnSearch = new JButton("검색");
 	ArrayList<BookVO> bookVOList;
+	String searchWord;
 	
-	public BookSearchView(ArrayList<BookVO> bookVOList) {
-		this.bookVOList = bookVOList;
-		setLayout(new BorderLayout());
+	public BookSearchView() {
+	
+	}
+	
+	public void initView() {
+		setLayout(new BorderLayout(10,10));
 		JPanel panN = new JPanel();
 		panN.add(lblSearch);
 		panN.add(textSearch);
@@ -46,9 +50,16 @@ public class BookSearchView extends JPanel {
 		
 		add("North", panN);
 		add("Center", scroll);
-		
 	}
 	
+	public void setBookVOList(ArrayList<BookVO> bookVOList) {
+		this.bookVOList = bookVOList;
+	}
+	
+	public String getSearchWord() {
+		return textSearch.getText();
+	}
+
 	public void putSearchResult() {
 		BookVO bookVO = null;
 		for (int i = 0; i < bookVOList.size(); i++) {

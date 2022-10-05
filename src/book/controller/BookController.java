@@ -14,9 +14,13 @@ public class BookController extends JFrame {
 	
 	public BookController() {
 		Connection con = JDBCConnector.getCon();
+		BookSearchView searchPan = new BookSearchView();
+	
 		BookDAO bookDAO = new BookDAO();
-		ArrayList<BookVO> bookVOList = bookDAO.select(con);
-		add("Center",new BookSearchView(bookVOList));
+		ArrayList<BookVO> bookVOList = bookDAO.select(con, searchPan.getSearchWord());
+		searchPan.setBookVOList(bookVOList);
+		searchPan.initView();
+		add("Center",searchPan);
 		
 		setTitle("도서 검색 시스템");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -26,7 +30,6 @@ public class BookController extends JFrame {
 
 	public static void main(String[] args) {
 		new BookController();
-
 	}
 
 }

@@ -13,7 +13,7 @@ public class BookDAO {
 	ArrayList<BookVO> bookVOList = new ArrayList<BookVO>();
 	
 	
-	public ArrayList<BookVO> select(Connection con) {
+	public ArrayList<BookVO> select(Connection con, String searchWord) {
 		con = JDBCConnector.getCon();
 		
 		try {
@@ -36,6 +36,5 @@ public class BookDAO {
 		}
 		return bookVOList;
 	}
-	
 
 }
